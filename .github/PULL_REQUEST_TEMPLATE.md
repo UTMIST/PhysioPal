@@ -10,10 +10,11 @@ Closes #
 ## Checklist
 - [ ] Branch name follows `feature/<issue-id>-<short-description>`
 - [ ] PR title is a conventional commit message: `feat: ...` / `fix: ...` / `docs: ...`
-- [ ] `ruff check src/ tests/` passes
+- [ ] `ruff check physiopal/ tests/` passes
 - [ ] `pytest tests/ -v` passes
 - [ ] Acceptance criteria from the issue are met
 
 ## How to test
 
-## Screenshots (if applicable)
+## Demo clip / screenshot
+<!-- For exercise PRs: a short GIF or clip of the overlay counting reps -->

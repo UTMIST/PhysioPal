@@ -26,10 +26,10 @@ The `<issue-id>` is the GitHub issue number. The description uses hyphens, lower
 **Examples:**
 
 ```
-feature/42-add-vit-model
-fix/17-cifar-loader-crash
-docs/31-update-experiment-guide
-chore/8-bump-torch-version
+feature/12-squat-state-machine
+fix/17-lunge-front-leg-flip
+docs/31-shoulder-abduction-spec
+chore/8-bump-mediapipe
 ```
 
 ---
@@ -39,12 +39,12 @@ chore/8-bump-torch-version
 Use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
-feat: add ViT model config and builder
-fix: correct learning rate scheduler step timing
-docs: add MLflow setup instructions
-chore: update torch to 2.3
-test: add forward pass test for ResNet
-refactor: simplify build_model dispatch
+feat: add squat state machine and rep counting
+fix: stop lunge front leg flipping mid-rep
+docs: add shoulder abduction form cues
+chore: bump mediapipe to 1.3
+test: add shallow-rep test for squat
+refactor: simplify overlay text drawing
 ```
 
 Format: `<type>: <short description>` — lowercase, no period, present tense.
@@ -58,9 +58,9 @@ Since we squash on merge, commit messages within your branch don't need to be pe
 Match the branch prefix and make it a conventional commit message:
 
 ```
-feat: add ViT model config and builder (#42)
-fix: correct learning rate scheduler step timing (#17)
-docs: update experiment tracking guide (#31)
+feat: add squat state machine and rep counting (#12)
+fix: stop lunge front leg flipping mid-rep (#17)
+docs: add shoulder abduction form cues (#31)
 ```
 
 The issue number in parentheses is optional but helpful for traceability.
@@ -84,7 +84,7 @@ To set this as the default in GitHub: repo **Settings → General → Pull Reque
 ## Code style
 
 ```bash
-ruff check src/ tests/     # lint
+ruff check physiopal/ tests/   # lint
 pytest tests/ -v           # tests
 ```
 

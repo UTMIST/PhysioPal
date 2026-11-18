@@ -22,6 +22,9 @@ logs/
 *.onnx
 wandb/
 
+# MediaPipe models (download with scripts/download_models.py)
+models/*.task
+
 # Keep READMEs in otherwise-ignored dirs
 !data/README.md
 !checkpoints/README.md

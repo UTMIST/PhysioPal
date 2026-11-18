@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install ruff
-      - run: ruff check src/ tests/
+      - run: ruff check physiopal/ tests/ scripts/
 
   test:
     runs-on: ubuntu-latest
@@ -24,6 +24,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-      - run: pip install hydra-core omegaconf pytest numpy
-      - run: pytest tests/test_smoke.py -v -k "not cifar"
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - run: python scripts/download_models.py lite
+      - run: pytest tests/ -v
