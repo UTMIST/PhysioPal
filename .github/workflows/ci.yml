@@ -10,8 +10,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install ruff
@@ -20,11 +20,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
+      # MediaPipe's native library needs these graphics libs, which GitHub's
+      # Ubuntu runners don't ship with (macOS/Windows laptops already have them).
+      - run: sudo apt-get update && sudo apt-get install -y libegl1 libgles2 libgl1
       - run: pip install -e ".[dev]"
       - run: python scripts/download_models.py lite
       - run: pytest tests/ -v
